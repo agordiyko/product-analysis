@@ -1,0 +1,421 @@
+@font-face {
+    font-family: 'Inter';
+    src        : url('../fonts/Inter-Bold.woff2') format('woff2'),
+        url('../fonts/Inter-Bold.woff') format('woff');
+    font-weight : bold;
+    font-style  : normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src        : url('../fonts/Inter-Regular.woff2') format('woff2'),
+        url('../fonts/Inter-Regular.woff') format('woff');
+    font-weight : normal;
+    font-style  : normal;
+    font-display: swap;
+}
+
+:root {
+    --main-font-size: 13px;
+}
+
+[class^="_icon-"]:before,
+[class*=" _icon-"]:before {
+    font-family            : "icons";
+    font-style             : normal;
+    font-weight            : normal;
+    font-variant           : normal;
+    text-transform         : none;
+    line-height            : 1;
+    -webkit-font-smoothing : antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="_icon-"]:before,
+[class*=" _icon-"]:before {
+    display: block;
+}
+
+* {
+    padding: 0px;
+    margin : 0px;
+    border : 0px;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    box-sizing        : border-box;
+}
+
+:focus,
+:active {
+    outline: none;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+aside,
+nav,
+footer,
+header,
+section {
+    display: block;
+}
+
+html,
+body {
+    height   : 100%;
+    min-width: 320px;
+}
+
+input,
+button,
+textarea {
+    font-family: 'Inter', 'Verdana', sans-serif;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border : 0;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size  : inherit;
+}
+
+body {
+    line-height             : 1;
+    font-family             : 'Inter', 'Verdana', sans-serif;
+    -ms-text-size-adjust    : 100%;
+    -moz-text-size-adjust   : 100%;
+    -webkit-text-size-adjust: 100%;
+    background              : #F6F7FB;
+    font-size               : var(--main-font-size);
+    font-style              : normal;
+    font-weight             : 400;
+    line-height             : 24px;
+    color                   : #000;
+}
+
+body._lock {
+    overflow: hidden;
+}
+
+.wrapper {
+    width                : 100%;
+    min-height           : 100%;
+    overflow             : hidden;
+    display              : -webkit-box;
+    display              : -ms-flexbox;
+    display              : flex;
+    -webkit-box-orient   : vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction   : column;
+    flex-direction       : column;
+}
+
+.container {
+    max-width: 1440px;
+    margin   : 0 auto;
+}
+
+.dashboard {
+    padding: 32px;
+}
+
+/*#region Filters */
+
+.dashboard__filters {
+    display              : grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    justify-content      : space-between;
+    align-items          : center;
+    grid-gap             : 32px;
+    margin-bottom        : 40px;
+}
+
+.dashboard__filter {
+    display    : flex;
+    align-items: center;
+    column-gap : 16px;
+}
+
+.dashboard__head {
+    color: #353C4E;
+}
+
+.dashboard__hold {
+    position: relative;
+    width   : 100%;
+    height  : 100%;
+}
+
+.dashboard__date {
+    width      : 251px;
+    height : 32px;
+    display    : flex;
+    align-items: center;
+    border     : 1px solid #D9D9D9;
+    background : #fff;
+    color      : #353C4E;
+
+    padding: 7px 10px 7px 31px;
+}
+
+.dashboard__svg {
+    cursor    : pointer;
+    position  : absolute;
+    top       : 7px;
+    left      : 10px;
+    transition: all .5s ease 0s;
+}
+
+.dashboard__svg:hover {
+    color: #64B0F2;
+}
+
+.dashboard__more-filters {}
+
+.dashboard__wrap {
+    display    : flex;
+    align-items: center;
+    column-gap : 16px;
+}
+
+.link {}
+
+.dashboard__more-graphics {}
+
+/*#endregion Filters */
+
+/*#region Graphics */
+.dashboard__graphics {
+    display              : grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content      : space-between;
+    align-items          : center;
+    grid-gap             : 32px;
+}
+
+/*#endregion Graphics */
+
+/*#region Banners */
+.dashboard__banners {
+    display              : grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content      : space-between;
+    align-items          : center;
+    grid-gap             : 32px;
+    margin-bottom        : 32px;
+}
+
+.dashboard__banner {
+    display        : flex;
+    align-items    : center;
+    justify-content: space-between;
+    border-radius  : 5px;
+    padding        : 32px 20px 32px 17px;
+    box-shadow     : 0px 1px 20px 0px rgba(69, 90, 100, 0.08);
+}
+
+.dashboard__banner:nth-child(1) {
+    background: linear-gradient(90deg, #01A9AC 0%, #01DBDF 100%);
+}
+
+.dashboard__banner:nth-child(2) {
+    background: linear-gradient(90deg, #0AC282 0%, #0DF3A3 100%);
+}
+
+.dashboard__banner:nth-child(3) {
+    background: linear-gradient(90deg, #FE9365 0%, #FEB798 100%);
+}
+
+.dashboard__banner:nth-child(4) {
+    background: linear-gradient(90deg, #FE5D70 0%, #FE909D 100%);
+    ;
+}
+
+.dashboard__label {
+    color        : #FFF;
+    font-weight  : 700;
+    line-height  : 24px;
+    margin-bottom: 10px;
+}
+
+.dashboard__sum {
+    color      : #FFF;
+    font-size  : 32px;
+    line-height: 24px;
+}
+
+.dashboard__img {
+    max-width: 54px;
+    height   : 48px;
+}
+
+.dashboard__img svg {
+    max-width    : 100%;
+    min-height   : 100%;
+    -o-object-fit: cover;
+    object-fit   : cover;
+}
+
+/*#endregion Banners */
+
+/*#region Data */
+
+
+.dashboard__btn {
+    display  : flex;
+    max-width: 120px;
+    margin   : 28px auto 0;
+}
+
+.link {
+    color        : #919AA3;
+    line-height  : 24px;
+    background   : none;
+    outline      : none;
+    border       : none;
+    border-bottom: 1px dashed #919AA3;
+    transition   : all .5s ease 0s;
+}
+
+@media (min-width: 992px) {
+    .link:hover {
+        color        : #64B0F2;
+        border-bottom: 1px dashed #64B0F2;
+    }
+}
+
+
+/*#endregion Data */
+
+
+/*#region Select */
+
+.custom-select {
+    position   : relative;
+    font-family: Arial;
+}
+
+.custom-select select {
+    display                       : none;
+    /*hide original SELECT element:*/
+}
+
+.select-selected {
+    background-color: DodgerBlue;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+    position    : absolute;
+    content     : "";
+    width: 9px;
+    height: 5px;
+    top         : 14px;
+    right       : 10px;
+    background: url('../icons/arrow.svg') no-repeat;
+    transition: all .5s ease 0s;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+    transform: rotate(180deg);
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,
+.select-selected {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+    background: #fff;
+    color: #353C4E;
+    font-size: 13px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 16px 10px;
+    cursor      : pointer;
+    border: 1px solid #D9D9D9;
+    transition: all .5s ease 0s;
+}
+.select-items {
+
+}
+
+.select-items div {
+    border: none;
+}
+
+/*style items (options):*/
+.select-items {
+    position        : absolute;
+    border: 1px solid #333;
+    background: #FFF;
+    box-shadow: 0px 1px 20px 0px rgba(69, 90, 100, 0.08);
+    top             : 100%;
+    right           : 0;
+    z-index         : 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+    background-color: rgba(182, 182, 182, 0.2);
+}
+
+.dashboard__filter_group .select-items {
+    width: 224.5px;
+}
+.dashboard__filter_store .select-items {
+    width: 263px;
+}
+
+/*#endregion Select */
+
