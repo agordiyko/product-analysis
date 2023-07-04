@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <link rel="stylesheet" href="css/style.css">
     <title>Product Analysis</title>
 </head>
@@ -20,16 +21,17 @@
                             <label class="dashboard__head" for="date-start">Период:</label>
                             <div class="dashboard__hold">
                                 <div class="dashboard__date">
-                                    26.05.2023 - 26.06.2023
+                                    <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
                                 </div>
                                 <div class="dashboard__svg">
-                                    <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4.625 9H3.375C3.16875 9 3 8.83125 3 8.625V7.375C3 7.16875 3.16875 7 3.375 7H4.625C4.83125 7 5 7.16875 5 7.375V8.625C5 8.83125 4.83125 9 4.625 9ZM8 8.625V7.375C8 7.16875 7.83125 7 7.625 7H6.375C6.16875 7 6 7.16875 6 7.375V8.625C6 8.83125 6.16875 9 6.375 9H7.625C7.83125 9 8 8.83125 8 8.625ZM11 8.625V7.375C11 7.16875 10.8312 7 10.625 7H9.375C9.16875 7 9 7.16875 9 7.375V8.625C9 8.83125 9.16875 9 9.375 9H10.625C10.8312 9 11 8.83125 11 8.625ZM8 11.625V10.375C8 10.1688 7.83125 10 7.625 10H6.375C6.16875 10 6 10.1688 6 10.375V11.625C6 11.8312 6.16875 12 6.375 12H7.625C7.83125 12 8 11.8312 8 11.625ZM5 11.625V10.375C5 10.1688 4.83125 10 4.625 10H3.375C3.16875 10 3 10.1688 3 10.375V11.625C3 11.8312 3.16875 12 3.375 12H4.625C4.83125 12 5 11.8312 5 11.625ZM11 11.625V10.375C11 10.1688 10.8312 10 10.625 10H9.375C9.16875 10 9 10.1688 9 10.375V11.625C9 11.8312 9.16875 12 9.375 12H10.625C10.8312 12 11 11.8312 11 11.625ZM14 3.5V14.5C14 15.3281 13.3281 16 12.5 16H1.5C0.671875 16 0 15.3281 0 14.5V3.5C0 2.67188 0.671875 2 1.5 2H3V0.375C3 0.16875 3.16875 0 3.375 0H4.625C4.83125 0 5 0.16875 5 0.375V2H9V0.375C9 0.16875 9.16875 0 9.375 0H10.625C10.8312 0 11 0.16875 11 0.375V2H12.5C13.3281 2 14 2.67188 14 3.5ZM12.5 14.3125V5H1.5V14.3125C1.5 14.4156 1.58437 14.5 1.6875 14.5H12.3125C12.4156 14.5 12.5 14.4156 12.5 14.3125Z" fill="#353C4E"/>
-                                        </svg>
+                                    <svg width="14" height="16" viewBox="0 0 14 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M4.625 9H3.375C3.16875 9 3 8.83125 3 8.625V7.375C3 7.16875 3.16875 7 3.375 7H4.625C4.83125 7 5 7.16875 5 7.375V8.625C5 8.83125 4.83125 9 4.625 9ZM8 8.625V7.375C8 7.16875 7.83125 7 7.625 7H6.375C6.16875 7 6 7.16875 6 7.375V8.625C6 8.83125 6.16875 9 6.375 9H7.625C7.83125 9 8 8.83125 8 8.625ZM11 8.625V7.375C11 7.16875 10.8312 7 10.625 7H9.375C9.16875 7 9 7.16875 9 7.375V8.625C9 8.83125 9.16875 9 9.375 9H10.625C10.8312 9 11 8.83125 11 8.625ZM8 11.625V10.375C8 10.1688 7.83125 10 7.625 10H6.375C6.16875 10 6 10.1688 6 10.375V11.625C6 11.8312 6.16875 12 6.375 12H7.625C7.83125 12 8 11.8312 8 11.625ZM5 11.625V10.375C5 10.1688 4.83125 10 4.625 10H3.375C3.16875 10 3 10.1688 3 10.375V11.625C3 11.8312 3.16875 12 3.375 12H4.625C4.83125 12 5 11.8312 5 11.625ZM11 11.625V10.375C11 10.1688 10.8312 10 10.625 10H9.375C9.16875 10 9 10.1688 9 10.375V11.625C9 11.8312 9.16875 12 9.375 12H10.625C10.8312 12 11 11.8312 11 11.625ZM14 3.5V14.5C14 15.3281 13.3281 16 12.5 16H1.5C0.671875 16 0 15.3281 0 14.5V3.5C0 2.67188 0.671875 2 1.5 2H3V0.375C3 0.16875 3.16875 0 3.375 0H4.625C4.83125 0 5 0.16875 5 0.375V2H9V0.375C9 0.16875 9.16875 0 9.375 0H10.625C10.8312 0 11 0.16875 11 0.375V2H12.5C13.3281 2 14 2.67188 14 3.5ZM12.5 14.3125V5H1.5V14.3125C1.5 14.4156 1.58437 14.5 1.6875 14.5H12.3125C12.4156 14.5 12.5 14.4156 12.5 14.3125Z"
+                                            fill="#353C4E" />
+                                    </svg>
                                 </div>
                             </div>
-                            <!-- <input class="dashboard__date" type="date" name="date-start"
-                                value="26.05.2023 - 26.06.2023" min="2000-01-01" max="2050-12-31"> -->
                         </div>
                         <div class="dashboard__filter dashboard__filter_group custom-select">
                             <div class="dashboard__head">Группировка:</div>
@@ -49,10 +51,12 @@
                         </div>
                         <div class="dashboard__wrap">
                             <div class="dashboard__filter">
-                                <button class="dashboard__more-filters link">Больше фильтров ...</button>
+                                <button class="dashboard__more-filters js-open-modal link" data-modal="filter">Больше
+                                    фильтров ...</button>
                             </div>
                             <div class="dashboard__filter">
-                                <button class="dashboard__more-graphics link">Больше графиков ...</button>
+                                <button class="dashboard__more-graphics js-open-modal link" data-modal="filter">Больше
+                                    графиков ...</button>
                             </div>
                         </div>
                     </div>
@@ -127,18 +131,308 @@
                         </div>
                     </div>
                     <div class="dashboard__data">
-                        <div class="dashboard__headers">
-
-                        </div>
-                        <div class="dashboard__line">
-
-                        </div>
+                        <table class="resp-tab">
+                            <thead>
+                                <tr>
+                                    <th>Документ и кол-во позиций</th>
+                                    <th>Дата изменения</th>
+                                    <th>Склады</th>
+                                    <th>Ответственный</th>
+                                    <th>Сумма и маржа</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="table__wrap">
+                                            <a href="#" class="table__title"><abbr title="Открыть документ">Реализация #172-2023/06/23/2</abbr></a>
+                                            <div class="table__pos js-open-modal" data-modal="position"><abbr title="Список товаров">4 позиции</abbr></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="table__date">от 23 июня 2023</div>
+                                    </td>
+                                    <td><div class="table__adress">ул. Советская, 166</div></td>
+                                    <td>
+                                        <div class="table__resp">
+                                            <div class="table__round"></div>
+                                            <div class="table__worker">
+                                                <abbr title="Профиль сотрудника">Иван Иванов</abbr>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="table__sum">1 050 руб.</div>
+                                        <div class="table__profit">+ 207 руб.</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="table__wrap">
+                                            <a href="#" class="table__title">
+                                                <abbr title="Открыть документ">Приходная накладная #192</abbr>
+                                            </a>
+                                            <div class="table__pos js-open-modal" data-modal="position"><abbr title="Список товаров">3 позиции</abbr></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="table__date">от 23 июня 2023</div>
+                                    </td>
+                                    <td><div class="table__adress">ул. Советская, 166</div></td>
+                                    <td>
+                                        <div class="table__resp">
+                                            <div class="table__round"></div>
+                                            <div class="table__worker"><abbr title="Профиль сотрудника">Иван Иванов</abbr></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="table__sum red">(9 422 руб.)</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="table__wrap">
+                                            <a href="#" class="table__title">
+                                                <abbr title="Открыть документ">Реализация #171-2023/06/19/2</abbr>
+                                            </a>
+                                            <div class="table__pos js-open-modal" data-modal="position"><abbr title="Список товаров">20 позиций</abbr></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="table__date">от 19 июня 2023</div>
+                                    </td>
+                                    <td><div class="table__adress">ул. Советская, 166</div></td>
+                                    <td>
+                                        <div class="table__resp">
+                                            <div class="table__round"></div>
+                                            <div class="table__worker"><abbr title="Профиль сотрудника">Иван Иванов</abbr></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="table__sum">2 425 руб.</div>
+                                        <div class="table__profit">+ 207 руб.</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="table__wrap">
+                                            <a href="#" class="table__title"><abbr title="Открыть документ">Приходная накладная #191</abbr></a>
+                                            <div class="table__pos js-open-modal" data-modal="position"><abbr title="Список товаров">4 позиции</abbr></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="table__date">от 18 июня 2023</div>
+                                    </td>
+                                    <td><div class="table__adress">ул. Советская, 166</div></td>
+                                    <td>
+                                        <div class="table__resp">
+                                            <div class="table__round"></div>
+                                            <div class="table__worker"><abbr title="Профиль сотрудника">Иван Иванов</abbr></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="table__sum red">(9 489 руб.)</div>
+                                    </td>
+                                </tr>
+                                <tr class="table__line_hidden">
+                                    <td>
+                                        <div class="table__wrap">
+                                            <a href="#" class="table__title"><abbr title="Открыть документ">Реализация #172-2023/06/23/2</abbr></a>
+                                            <div class="table__pos js-open-modal" data-modal="position"><abbr title="Список товаров">4 позиции</abbr></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="table__date">от 23 июня 2023</div>
+                                    </td>
+                                    <td><div class="table__adress">ул. Советская, 166</div></td>
+                                    <td>
+                                        <div class="table__resp">
+                                            <div class="table__round"></div>
+                                            <div class="table__worker">
+                                                <abbr title="Профиль сотрудника">Иван Иванов</abbr>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="table__sum">1 050 руб.</div>
+                                        <div class="table__profit">+ 207 руб.</div>
+                                    </td>
+                                </tr>
+                                <tr class="table__line_hidden">
+                                    <td>
+                                        <div class="table__wrap">
+                                            <a href="#" class="table__title">
+                                                <abbr title="Открыть документ">Приходная накладная #192</abbr>
+                                            </a>
+                                            <div class="table__pos js-open-modal" data-modal="position"><abbr title="Список товаров">3 позиции</abbr></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="table__date">от 23 июня 2023</div>
+                                    </td>
+                                    <td><div class="table__adress">ул. Советская, 166</div></td>
+                                    <td>
+                                        <div class="table__resp">
+                                            <div class="table__round"></div>
+                                            <div class="table__worker"><abbr title="Профиль сотрудника">Иван Иванов</abbr></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="table__sum red">(9 422 руб.)</div>
+                                    </td>
+                                </tr>
+                                <tr class="table__line_hidden">
+                                    <td>
+                                        <div class="table__wrap">
+                                            <a href="#" class="table__title">
+                                                <abbr title="Открыть документ">Реализация #171-2023/06/19/2</abbr>
+                                            </a>
+                                            <div class="table__pos js-open-modal" data-modal="position"><abbr title="Список товаров">20 позиций</abbr></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="table__date">от 19 июня 2023</div>
+                                    </td>
+                                    <td><div class="table__adress">ул. Советская, 166</div></td>
+                                    <td>
+                                        <div class="table__resp">
+                                            <div class="table__round"></div>
+                                            <div class="table__worker"><abbr title="Профиль сотрудника">Иван Иванов</abbr></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="table__sum">2 425 руб.</div>
+                                        <div class="table__profit">+ 207 руб.</div>
+                                    </td>
+                                </tr>
+                                <tr class="table__line_hidden">
+                                    <td>
+                                        <div class="table__wrap">
+                                            <a href="#" class="table__title"><abbr title="Открыть документ">Приходная накладная #191</abbr></a>
+                                            <div class="table__pos js-open-modal" data-modal="position"><abbr title="Список товаров">4 позиции</abbr></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="table__date">от 18 июня 2023</div>
+                                    </td>
+                                    <td><div class="table__adress">ул. Советская, 166</div></td>
+                                    <td>
+                                        <div class="table__resp">
+                                            <div class="table__round"></div>
+                                            <div class="table__worker"><abbr title="Профиль сотрудника">Иван Иванов</abbr></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="table__sum red">(9 489 руб.)</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <button class="dashboard__btn link">Показать ещё ...</button>
                     </div>
+                    <canvas id="myChart"></canvas>
                 </div>
             </div>
         </main>
     </div>
+    <div class="__window_wrap __window_wrap_position modal" data-modal="position">
+        <div class="__window_top">
+            <div class="__window__top-title">
+                Позиции товаров
+            </div>
+            <div class="__close js-modal-close">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="__window_body">
+            <div class="__modal_holder">
+                <table class="resp-tab">
+                    <thead>
+                        <tr>
+                            <th>Товар и количество</th>
+                            <th>Склад</th>
+                            <th>Сумма и маржа</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="table__round"></div>
+                                <div>
+                                    <a href="#" class="table__title">Картридж WJS 1009RS</a>
+                                    <div class="table__num">1 шт.</div>
+                                </div>
+                            </td>
+                            <td><div class="table__adress">ул. Советская, 166</div></td>
+                            <td>
+                                <div class="table__sum">1 050 руб.</div>
+                                <div class="table__profit">+ 207 руб.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table__round"></div>
+                                <div>
+                                    <a href="#" class="table__title">Картридж WJS 1009RS</a>
+                                    <div class="table__num">1 шт.</div>
+                                </div>
+                            </td>
+                            <td><div class="table__adress">ул. Советская, 166</div></td>
+                            <td>
+                                <div class="table__sum">1 050 руб.</div>
+                                <div class="table__profit">+ 207 руб.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table__round"></div>
+                                <div>
+                                    <a href="#" class="table__title">Картридж WJS 1009RS</a>
+                                    <div class="table__num">1 шт.</div>
+                                </div>
+                            </td>
+                            <td><div class="table__adress">ул. Советская, 166</div></td>
+                            <td>
+                                <div class="table__sum">1 050 руб.</div>
+                                <div class="table__profit">+ 207 руб.</div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="__window_bottom">
+            <button class="__modal_btn">Закрыть</button>
+        </div>
+    </div>
+    <div class="__window_wrap __window_wrap_filter modal" data-modal="filter">
+        <div class="__window_top">
+            <div class="__window__top-title">
+                Больше фильтров
+            </div>
+            <div class="__close js-modal-close">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="__window_body">
+            <div class="__modal_holder">
+                <p>Тут будет текст</p>
+            </div>
+        </div>
+        <div class="__window_bottom">
+            <button class="__modal_btn">Закрыть</button>
+        </div>
+    </div>
+    <div class="overlay js-overlay-modal" id="overlay-modal"></div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 

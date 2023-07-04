@@ -164,7 +164,7 @@ body._lock {
 
 .dashboard__filters {
     display              : grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-content      : space-between;
     align-items          : center;
     grid-gap             : 32px;
@@ -189,7 +189,7 @@ body._lock {
 
 .dashboard__date {
     width      : 251px;
-    height : 32px;
+    height     : 32px;
     display    : flex;
     align-items: center;
     border     : 1px solid #D9D9D9;
@@ -211,17 +211,11 @@ body._lock {
     color: #64B0F2;
 }
 
-.dashboard__more-filters {}
-
 .dashboard__wrap {
     display    : flex;
     align-items: center;
     column-gap : 16px;
 }
-
-.link {}
-
-.dashboard__more-graphics {}
 
 /*#endregion Filters */
 
@@ -299,8 +293,8 @@ body._lock {
 
 /*#endregion Banners */
 
-/*#region Data */
 
+/*#region Data */
 
 .dashboard__btn {
     display  : flex;
@@ -325,82 +319,73 @@ body._lock {
     }
 }
 
-
 /*#endregion Data */
+
 
 
 /*#region Select */
 
 .custom-select {
     position   : relative;
-    font-family: Arial;
+    font-family: 'Inter', 'Verdana', sans-serif;
 }
 
 .custom-select select {
     display                       : none;
-    /*hide original SELECT element:*/
 }
 
 .select-selected {
     background-color: DodgerBlue;
 }
 
-/*style the arrow inside the select element:*/
 .select-selected:after {
-    position    : absolute;
-    content     : "";
-    width: 9px;
-    height: 5px;
-    top         : 14px;
-    right       : 10px;
+    position  : absolute;
+    content   : "";
+    width     : 9px;
+    height    : 5px;
+    top       : 14px;
+    right     : 10px;
     background: url('../icons/arrow.svg') no-repeat;
     transition: all .5s ease 0s;
 }
 
-/*point the arrow upwards when the select box is open (active):*/
 .select-selected.select-arrow-active:after {
     transform: rotate(180deg);
 }
 
-/*style the items (options), including the selected item:*/
 .select-items div,
 .select-selected {
-    display: flex;
+    display    : flex;
     align-items: center;
-    width: 100%;
-    height: 32px;
-    background: #fff;
-    color: #353C4E;
-    font-size: 13px;
+    width      : 100%;
+    height     : 32px;
+    background : #fff;
+    color      : #353C4E;
+    font-size  : 13px;
     font-family: Inter;
-    font-style: normal;
+    font-style : normal;
     font-weight: 400;
     line-height: 24px;
-    padding: 16px 10px;
-    cursor      : pointer;
-    border: 1px solid #D9D9D9;
-    transition: all .5s ease 0s;
-}
-.select-items {
-
+    padding    : 16px 10px;
+    cursor     : pointer;
+    border     : 1px solid #D9D9D9;
+    transition : all .5s ease 0s;
 }
 
 .select-items div {
     border: none;
 }
 
-/*style items (options):*/
 .select-items {
-    position        : absolute;
-    border: 1px solid #333;
+    position  : absolute;
+    border    : 1px solid #333;
     background: #FFF;
     box-shadow: 0px 1px 20px 0px rgba(69, 90, 100, 0.08);
-    top             : 100%;
-    right           : 0;
-    z-index         : 99;
+    top       : 100%;
+    right     : 0;
+    z-index   : 99;
 }
 
-/*hide the items when the select box is closed:*/
 .select-hide {
     display: none;
 }
@@ -413,9 +398,397 @@ body._lock {
 .dashboard__filter_group .select-items {
     width: 224.5px;
 }
+
 .dashboard__filter_store .select-items {
     width: 263px;
 }
 
+@media (max-width: 385px) {
+    .dashboard__filter {
+        flex-wrap: wrap;
+    }
+    .select-selected:after {
+        top: 40px;
+    }
+}
+
 /*#endregion Select */
 
+
+/* #region Modal */
+
+.overlay {
+
+    opacity   : 0;
+    visibility: hidden;
+
+    position  : fixed;
+    top       : 0;
+    left      : 0;
+    width     : 100%;
+    height    : 100%;
+    background: rgba(0, 0, 0, 0.20);
+    z-index   : 20;
+    transition: .3s all;
+}
+
+
+
+.modal {
+
+    opacity   : 0;
+    visibility: hidden;
+
+
+    width    : 100%;
+    max-width: 800px;
+
+    position : fixed;
+    top      : 50%;
+    left     : 50%;
+    transform: translate(-50%, -50%);
+    z-index  : 30;
+
+    border-radius   : 5px;
+    background-color: #fff;
+    transition      : 0.3s all;
+}
+
+
+
+.modal.active,
+.overlay.active {
+    opacity   : 1;
+    visibility: visible;
+}
+
+
+
+.modal__cross {
+    width   : 15px;
+    height  : 15px;
+    position: absolute;
+    top     : 20px;
+    right   : 20px;
+    fill    : #444;
+    cursor  : pointer;
+}
+
+.__window_top {
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+    border-bottom  : 1px solid #CCC;
+    padding        : 16px 17px;
+    margin-bottom  : 32px;
+}
+
+.__window__top-title {
+    color      : #000;
+    font-size  : 24px;
+    font-family: Inter;
+    font-style : normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.__close {
+    cursor    : pointer;
+    width     : 20px;
+    height    : 20px;
+    transition: all .5s ease 0s;
+}
+
+@media (min-width: 992px) {
+    .__close:hover {
+        opacity: 0.6;
+    }
+}
+
+.__window_body {
+    padding      : 0 16px 0 16px;
+    margin-bottom: 32px;
+}
+
+.__modal_holder p {
+    text-align : left;
+    color      : #353C4E;
+    line-height: 24px;
+}
+
+.__window_wrap_filter {
+    min-height: 169px;
+}
+
+.__window_bottom {
+    padding        : 0 16px 16px 16px;
+    display        : flex;
+    justify-content: end;
+}
+
+.__modal_btn {
+    height         : 32px;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    color          : #6C757D;
+    font-size      : 13px;
+    font-weight    : 400;
+    line-height    : 24px;
+    border-radius  : 5px;
+    border         : 1px solid #6C757D;
+    padding        : 10px 25px;
+    transition     : all .5s ease 0s;
+    background     : #fff;
+}
+
+@media (min-width: 992px) {
+    .__modal_btn:hover {
+        color : #64B0F2;
+        border: 1px solid #64B0F2;
+    }
+}
+
+.resp-tab {
+    font-weight    : normal;
+    border         : none;
+    border-collapse: collapse;
+    width          : 100%;
+    max-width      : 100%;
+}
+
+.resp-tab th,
+.resp-tab td {
+    padding       : 7px 17px;
+    font-size     : 13px;
+    border        : none;
+    vertical-align: top;
+}
+
+.resp-tab th {
+    font-weight    : bold;
+    border-bottom  : 1px solid #CCC;
+    color          : #000;
+    font-size      : 13px;
+    font-weight    : 400;
+    line-height    : 24px;
+    text-align-last: left;
+}
+
+.resp-tab tr:not(:last-child) {
+    border-bottom: 1px solid #CCC;
+}
+
+.resp-tab td:first-child {
+    display     : flex;
+    margin-right: 8px;
+}
+
+.resp-tab td span {
+    display       : none;
+    font-size     : 11px;
+    font-weight   : bold;
+    text-transform: uppercase;
+    padding       : 5px 10px;
+    position      : absolute;
+    top           : 0;
+    left          : 0;
+}
+
+@media(max-width: 768px) {
+    .resp-tab thead {
+        display: none;
+    }
+
+    .resp-tab tr {
+        display       : flex;
+        flex-direction: row;
+        flex-wrap     : wrap;
+        margin-bottom : 30px;
+    }
+
+    .resp-tab td {
+        margin     : 0 -1px -1px 0;
+        padding-top: 35px;
+        position   : relative;
+        width      : 50%;
+    }
+
+    .resp-tab td span {
+        display: block;
+    }
+}
+
+@media(max-width: 480px) {
+    .resp-tab td {
+        width: 100%;
+    }
+}
+
+.table__round {
+    display      : inline-block;
+    width        : 24px;
+    height       : 24px;
+    flex-shrink  : 0;
+    border-radius: 50%;
+    background   : #D9D9D9;
+    margin-right : 8px;
+}
+
+.table__title {
+    color     : #64B0F2;
+    transition: all .5s ease 0s;
+}
+
+@media (min-width: 992px) {
+    .table__title:hover {
+        color: #1a84e1;
+    }
+}
+
+.table__num {
+    color: #AAA;
+}
+
+.table__adress {
+    padding        : 1px 8px;
+    display        : inline-flex;
+    justify-content: center;
+    align-items    : center;
+    width          : fit-content;
+    color          : #767676;
+    border-radius  : 12px;
+    background     : #E4E3E6;
+}
+
+.table__sum {
+    color      : #0AC282;
+    font-size  : 14px;
+    font-weight: 700;
+}
+
+.table__sum.red {
+    color: #FE5F71;
+}
+
+.table__profit {
+    color: #01A9AC;
+}
+
+.table__wrap {
+    display       : flex;
+    flex-direction: column;
+}
+
+.table__pos {
+    cursor       : pointer;
+    display      : inline-block;
+    width        : fit-content;
+    color        : #AAA;
+    border-bottom: 1px dashed #aaa;
+    transition   : all .5s ease 0s;
+}
+
+@media (min-width: 992px) {
+    .table__pos:hover {
+        color        : #01A9AC;
+        border-bottom: 1px dashed #01A9AC;
+    }
+}
+
+.table__date {
+    color: #767676;
+}
+
+.table__resp {
+    display      : flex;
+    align-items  : center;
+    border-radius: 13px;
+    width        : fit-content;
+    padding      : 3px 6px;
+    cursor       : context-menu;
+    transition   : all .5s ease 0s;
+}
+
+@media (min-width: 992px) {
+    .table__resp:hover {
+        background: #C0EDFD;
+    }
+}
+
+.dashboard__data .resp-tab th,
+.dashboard__data .resp-tab td {
+    padding: 12px 0px 13px;
+}
+
+.table__worker {
+    color: #767676;
+}
+
+.table__pos abbr,
+.table__title abbr,
+.table__worker abbr {
+    cursor         : context-menu;
+    text-decoration: none;
+    position: relative;
+}
+
+.table__line_hidden {
+    display: none;
+}
+
+.table__line_hidden.visible {
+    display: table-row;
+}
+
+.dashboard__data .resp-tab tr {
+    border-bottom: 1px solid #CCC;
+}
+
+
+/* #endregion Modal */
+
+/* #region Daterangepicker */
+.daterangepicker {
+    font-family  : 'Inter', 'Verdana', sans-serif !important;
+    border-radius: 5px;
+    border       : 1px solid #CCC;
+    background   : #FFF;
+    box-shadow   : 0px 1px 20px 0px rgba(69, 90, 100, 0.08);
+    overflow     : hidden;
+}
+
+.daterangepicker .ranges ul {
+    width: 173px;
+}
+
+.daterangepicker .drp-calendar {
+    padding: 32px !important;
+}
+
+.daterangepicker .drp-calendar.left {
+    padding-right: 8px !important;
+}
+
+.daterangepicker .drp-calendar.right {
+    padding-left: 8px !important;
+}
+
+.daterangepicker .drp-buttons {
+    border: none;
+}
+
+.daterangepicker .ranges li.active {
+    background: #08C;
+}
+
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+    background: #08C;
+}
+
+.daterangepicker td.in-range {
+    background: #ebf4f8;
+}
+
+/* #region Daterangepicker */
