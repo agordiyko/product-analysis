@@ -262,21 +262,114 @@ if (showMoreBtn) {
 
 const ctx = document.getElementById('myChart');
 
+Chart.defaults.borderColor = 'transparent';
+Chart.defaults.color = '#000';
+
 new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            borderWidth: 1
-        }]
+        labels: ['15.05 - 22.05', '22.05 - 29.05', '29.05 - 04.06', '04.06 - 11.06', '18.06 - 25.06'],
+        datasets: [
+            {
+                label: 'Выручка',
+                data: [200000, 300000, 410000, 400000, 350000],
+                backgroundColor: '#01A9AC',
+            },
+            {
+                label: 'Маржа',
+                data: [150000, 200000, 150000, 220000, 220000],
+                backgroundColor: '#0AC282',
+            },
+        ]
     },
     options: {
         scales: {
+            x: {
+                stacked: true,
+                display: false,
+            },
             y: {
-                beginAtZero: true
+                stacked: true,
+                display: false
             }
-        }
+        },
+        plugins: {
+            customCanvasBackgroundColor: {
+                color: 'white',
+            },
+            responsive: true,
+            maintainAspectRatio: true,
+            legend: false,
+            subtitle: {
+                display: true,
+                text: 'Маржа и выручка',
+                color: '#000',
+                position: 'top',
+                align: 'start',
+                font: {
+                    family: 'Inter',
+                    size: 14,
+                    weight: 'bold',
+                }
+
+            }
+        },
+    }
+});
+
+const secondCtx = document.getElementById('myChart-2');
+
+Chart.defaults.borderColor = 'transparent';
+Chart.defaults.color = '#000';
+
+new Chart(secondCtx, {
+
+    type: 'bar',
+    data: {
+        labels: ['15.05 - 22.05', '22.05 - 29.05', '29.05 - 04.06', '04.06 - 11.06', '18.06 - 25.06'],
+        datasets: [
+            {
+                label: 'Выручка',
+                data: [100000, 200000, 300000, 200000, 300000],
+                backgroundColor: '#FE5D70',
+            },
+            {
+                label: 'Закупки',
+                data: [200000, 300000, 300000, 400000, 200000],
+                backgroundColor: '#0AC282',
+            },
+        ]
+
+    },
+    options: {
+        scales: {
+            x: {
+                display: false
+            },
+            y: {
+                display: false
+            },
+        },
+        plugins: {
+            customCanvasBackgroundColor: {
+                color: 'white',
+            },
+            responsive: true,
+            maintainAspectRatio: true,
+            legend: false,
+            subtitle: {
+                display: true,
+                text: 'Выручка, закупки и остатки',
+                color: '#000',
+                position: 'top',
+                align: 'start',
+                font: {
+                    family: 'Inter',
+                    size: 14,
+                    weight: 'bold',
+                }
+
+            }
+        },
     }
 });

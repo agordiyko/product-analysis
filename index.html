@@ -53,8 +53,6 @@
                             <div class="dashboard__filter">
                                 <button class="dashboard__more-filters js-open-modal link" data-modal="filter">Больше
                                     фильтров ...</button>
-                            </div>
-                            <div class="dashboard__filter">
                                 <button class="dashboard__more-graphics js-open-modal link" data-modal="filter">Больше
                                     графиков ...</button>
                             </div>
@@ -124,10 +122,10 @@
                     </div>
                     <div class="dashboard__graphics">
                         <div class="dashboard__graph">
-                            <img src="images/graph-1.png">
+                            <canvas id="myChart"></canvas>
                         </div>
                         <div class="dashboard__graph">
-                            <img src="images/graph-2.png">
+                            <canvas id="myChart-2"></canvas>
                         </div>
                     </div>
                     <div class="dashboard__data">
@@ -330,7 +328,6 @@
                         </table>
                         <button class="dashboard__btn link">Показать ещё ...</button>
                     </div>
-                    <canvas id="myChart"></canvas>
                 </div>
             </div>
         </main>
