@@ -719,6 +719,19 @@ body._lock {
         max-width: 95%;
     }
 }
+@media (max-width: 850px) {
+    .modal {
+        max-width: 95%;
+    }
+}
+@media (max-width: 768px) {
+    .__window_wrap_position{
+        height: 425px;
+        overflow-y: auto;
+    }
+}
+
+
 
 .__window_body {
     padding      : 0 16px 0 16px;
