@@ -141,7 +141,10 @@ body {
 }
 
 body._lock {
-    overflow: hidden;
+    height: 100vh;
+    overflow-y: hidden;
+    padding-right: 15px;
+    position: fixed;
 }
 
 .wrapper {

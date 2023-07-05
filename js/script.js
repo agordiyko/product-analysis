@@ -105,6 +105,17 @@ document.addEventListener("click", closeAllSelect);
 !function (e) { "function" != typeof e.matches && (e.matches = e.msMatchesSelector || e.mozMatchesSelector || e.webkitMatchesSelector || function (e) { for (var t = this, o = (t.document || t.ownerDocument).querySelectorAll(e), n = 0; o[n] && o[n] !== t;)++n; return Boolean(o[n]) }), "function" != typeof e.closest && (e.closest = function (e) { for (var t = this; t && 1 === t.nodeType;) { if (t.matches(e)) return t; t = t.parentNode } return null }) }(window.Element.prototype);
 
 
+const modalOpenBodyFix = () => {
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${window.scrollY}px`;
+}
+const modalCloseBodyFix = () => {
+    const scrollY = document.body.style.top;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
 
     /* Записываем в переменные массив элементов-кнопок и подложку.
@@ -136,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
                подложке и окну чтобы показать их. */
             modalElem.classList.add('active');
             overlay.classList.add('active');
+            modalOpenBodyFix();
         }); // end click
 
     }); // end foreach
@@ -148,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             parentModal.classList.remove('active');
             overlay.classList.remove('active');
+            modalCloseBodyFix();
         });
 
     }); // end foreach
@@ -158,6 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             parentModal.classList.remove('active');
             overlay.classList.remove('active');
+            modalCloseBodyFix();
         });
 
     }); // end foreach
@@ -169,6 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (key == 27) {
             if (document.querySelector('.modal.active')) {
                 document.querySelector('.modal.active').classList.remove('active');
+                modalCloseBodyFix();
             }
             document.querySelector('.overlay').classList.remove('active');
         };
@@ -178,6 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
     overlay.addEventListener('click', function () {
         if (document.querySelector('.modal.active')) {
             document.querySelector('.modal.active').classList.remove('active');
+            modalCloseBodyFix();
         }
         this.classList.remove('active');
     });
@@ -264,6 +280,7 @@ const ctx = document.getElementById('myChart');
 
 Chart.defaults.borderColor = 'transparent';
 Chart.defaults.color = '#000';
+// ctx.height = 420;
 
 new Chart(ctx, {
     type: 'bar',
@@ -314,13 +331,16 @@ new Chart(ctx, {
 
             }
         },
-    }
+        // maintainAspectRatio: false,
+    },
+    
 });
 
 const secondCtx = document.getElementById('myChart-2');
 
 Chart.defaults.borderColor = 'transparent';
 Chart.defaults.color = '#000';
+// secondCtx.height = 420;
 
 new Chart(secondCtx, {
 
@@ -371,5 +391,6 @@ new Chart(secondCtx, {
 
             }
         },
+        // maintainAspectRatio: false,
     }
 });
