@@ -716,12 +716,7 @@ body._lock {
 
 @media (max-width: 850px) {
     .modal {
-        max-width: 95%;
-    }
-}
-@media (max-width: 850px) {
-    .modal {
-        max-width: 95%;
+        max-width: 87%;
     }
 }
 @media (max-width: 768px) {
@@ -730,8 +725,6 @@ body._lock {
         overflow-y: auto;
     }
 }
-
-
 
 .__window_body {
     padding      : 0 16px 0 16px;
@@ -1153,9 +1146,18 @@ body._lock {
 /* #endregion Daterangepicker */
 
 /* #region Mobile */
-
+@media (max-width: 563px) {
+    .cancelBtn {
+        margin-bottom: 10px;
+    }
+    .applyBtn,
+    .cancelBtn {
+        width: 77px;
+    }
+}
 @media (max-width: 425px) {
     .dashboard {
+        /* padding: 30px 20px 30px 10px; */
         padding: 30px 10px;
     }
 
@@ -1190,6 +1192,12 @@ body._lock {
 
     .dashboard__data .table__line_hidden.visible {
         margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .dashboard {
+        padding: 30px 10px;
     }
 }
 

@@ -219,7 +219,7 @@ $('input[name="daterange"]').daterangepicker({
         'Текущий год': [moment().startOf('year'), moment().endOf('year')],
     },
     "locale": {
-        "format": "MM.DD.YYYY",
+        "format": "DD.MM.YYYY",
         "separator": " - ",
         "applyLabel": "Выбрать",
         "cancelLabel": "Отменить",
@@ -252,8 +252,8 @@ $('input[name="daterange"]').daterangepicker({
         ],
         "firstDay": 7
     },
-    "startDate": "06/28/2023",
-    "endDate": "07/04/2023"
+    "startDate": "28/06/2023",
+    "endDate": "04/07/2023"
 }, function (start, end, label) {
     console.log('New date range selected: ' + start.format('DD-MM-YYYY') + ' to ' + end.format('DD-MM-YYYY') + ' (predefined range: ' + label + ')');
     overlay.classList.remove('active');
