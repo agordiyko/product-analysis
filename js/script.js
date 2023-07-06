@@ -1,7 +1,6 @@
 const dashboardDate = document.querySelector('.dashboard__date'),
     overlay = document.querySelector('.js-overlay-modal');
 
-
 if (dashboardDate) {
     dashboardDate.addEventListener('click', (e) => {
         overlay.classList.add('active');
@@ -107,12 +106,20 @@ document.addEventListener("click", closeAllSelect);
 
 const modalOpenBodyFix = () => {
     document.body.style.position = 'fixed';
-    document.body.style.top = `-${window.scrollY}px`;
+    document.body.style.top = `0`;
+    document.body.style.left = `0`;
+    document.body.style.right = `0`;
+    document.body.style.bottom = `0`;
+    document.body.style.paddingRight = `15px`;
 }
 const modalCloseBodyFix = () => {
     const scrollY = document.body.style.top;
     document.body.style.position = '';
     document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.bottom = '';
+    document.body.style.paddingRight = `0px`;
     window.scrollTo(0, parseInt(scrollY || '0') * -1);
 }
 
@@ -280,7 +287,6 @@ const ctx = document.getElementById('myChart');
 
 Chart.defaults.borderColor = 'transparent';
 Chart.defaults.color = '#000';
-// ctx.height = 420;
 
 new Chart(ctx, {
     type: 'bar',
@@ -331,7 +337,6 @@ new Chart(ctx, {
 
             }
         },
-        // maintainAspectRatio: false,
     },
     
 });
@@ -340,7 +345,6 @@ const secondCtx = document.getElementById('myChart-2');
 
 Chart.defaults.borderColor = 'transparent';
 Chart.defaults.color = '#000';
-// secondCtx.height = 420;
 
 new Chart(secondCtx, {
 
@@ -391,6 +395,5 @@ new Chart(secondCtx, {
 
             }
         },
-        // maintainAspectRatio: false,
     }
 });

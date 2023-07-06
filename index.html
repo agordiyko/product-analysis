@@ -7,8 +7,7 @@
     <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="css/style.min.css"> -->
+    <link rel="stylesheet" href="css/style.min.css">
     <title>Product Analysis</title>
 </head>
 
@@ -54,7 +53,7 @@
                             <div class="dashboard__filter">
                                 <button class="dashboard__more-filters js-open-modal link" data-modal="filter">Больше
                                     фильтров ...</button>
-                                <button class="dashboard__more-graphics js-open-modal link" data-modal="filter">Больше
+                                <button class="dashboard__more-graphics js-open-modal link" data-modal="graphics">Больше
                                     графиков ...</button>
                             </div>
                         </div>
@@ -426,13 +425,32 @@
             <button class="__modal_btn">Закрыть</button>
         </div>
     </div>
+    <div class="__window_wrap __window_wrap_graphics modal" data-modal="graphics">
+        <div class="__window_top">
+            <div class="__window__top-title">
+                Больше графиков
+            </div>
+            <div class="__close js-modal-close">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="__window_body">
+            <div class="__modal_holder">
+                <p>Тут будет текст</p>
+            </div>
+        </div>
+        <div class="__window_bottom">
+            <button class="__modal_btn">Закрыть</button>
+        </div>
+    </div>
     <div class="overlay js-overlay-modal" id="overlay-modal"></div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <script src="js/script.js"></script>
-    <!-- <script src="js/script.min.js"></script> -->
+    <script src="js/script.min.js"></script>
 </body>
 
 </html>

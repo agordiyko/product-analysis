@@ -737,6 +737,7 @@ body._lock {
     line-height: 24px;
 }
 
+.__window_wrap_graphics,
 .__window_wrap_filter {
     min-height: 169px;
 }
